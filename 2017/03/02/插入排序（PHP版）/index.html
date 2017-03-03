@@ -105,43 +105,46 @@
 
 
 
-<meta name="description" content="版权申明:
-本文是原创作品，包括文字、资料、图片、网页格式，转载时请标注作者与来源。非经允许，不得用于赢利目的。
-
-插入排序
+<meta name="description" content="插入排序
 时间复杂度O(n^2), 空间复杂度O(1)
 
 思路：
 
 将数据划分为两个区域，已排序区和未排序区，最开始已排序区为第一位数字，从第二位数字(第一个未排序数字)开始检测；
-比较后移。将当前未排序的数据，在已排序区从后往前与已排比较，如果已排序区的数据大则后移一位并继续进行前">
+比较后移。将当前未排序的数据，在已排序区从后往前与已排比较，如果已排序区的数据大则后移一位并继续进行前一位的比较。
+插入。当前序数据小于或者已查找完所有已排序区数据时，将待排数据插入到索引位置。
+
+
+123456789">
 <meta property="og:type" content="article">
 <meta property="og:title" content="插入排序（PHP版）">
 <meta property="og:url" content="http://justpoet.github.io/2017/03/02/插入排序（PHP版）/index.html">
 <meta property="og:site_name" content="把代码写成诗">
-<meta property="og:description" content="版权申明:
-本文是原创作品，包括文字、资料、图片、网页格式，转载时请标注作者与来源。非经允许，不得用于赢利目的。
-
-插入排序
+<meta property="og:description" content="插入排序
 时间复杂度O(n^2), 空间复杂度O(1)
 
 思路：
 
 将数据划分为两个区域，已排序区和未排序区，最开始已排序区为第一位数字，从第二位数字(第一个未排序数字)开始检测；
-比较后移。将当前未排序的数据，在已排序区从后往前与已排比较，如果已排序区的数据大则后移一位并继续进行前">
-<meta property="og:updated_time" content="2017-03-03T07:22:17.000Z">
+比较后移。将当前未排序的数据，在已排序区从后往前与已排比较，如果已排序区的数据大则后移一位并继续进行前一位的比较。
+插入。当前序数据小于或者已查找完所有已排序区数据时，将待排数据插入到索引位置。
+
+
+123456789">
+<meta property="og:updated_time" content="2017-03-03T11:11:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="插入排序（PHP版）">
-<meta name="twitter:description" content="版权申明:
-本文是原创作品，包括文字、资料、图片、网页格式，转载时请标注作者与来源。非经允许，不得用于赢利目的。
-
-插入排序
+<meta name="twitter:description" content="插入排序
 时间复杂度O(n^2), 空间复杂度O(1)
 
 思路：
 
 将数据划分为两个区域，已排序区和未排序区，最开始已排序区为第一位数字，从第二位数字(第一个未排序数字)开始检测；
-比较后移。将当前未排序的数据，在已排序区从后往前与已排比较，如果已排序区的数据大则后移一位并继续进行前">
+比较后移。将当前未排序的数据，在已排序区从后往前与已排比较，如果已排序区的数据大则后移一位并继续进行前一位的比较。
+插入。当前序数据小于或者已查找完所有已排序区数据时，将待排数据插入到索引位置。
+
+
+123456789">
 
 
 
@@ -414,10 +417,7 @@
       
 
       
-        <h4 id="版权申明"><a href="#版权申明" class="headerlink" title="版权申明:"></a>版权申明:</h4><blockquote>
-<p>本文是原创作品，包括文字、资料、图片、网页格式，转载时请标注作者与来源。非经允许，不得用于赢利目的。</p>
-</blockquote>
-<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><blockquote>
+        <h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><blockquote>
 <p>时间复杂度O(n^2), 空间复杂度O(1)</p>
 </blockquote>
 <h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><blockquote>
@@ -428,6 +428,9 @@
 </ol>
 </blockquote>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span><span class="params">($data)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt; count($data); $i++) &#123;</div><div class="line">        <span class="comment">//当前待插入的数</span></div><div class="line">        $current = $data[$i];</div><div class="line">        $index = $i - <span class="number">1</span>;</div><div class="line">        <span class="comment">//向前检查</span></div><div class="line">        <span class="keyword">while</span> ($index &gt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">//如果当前检测的数据大于待插入的数据,则当前数据后移一位</span></div><div class="line">            <span class="keyword">if</span> ($data[$index] &gt; $current) &#123;</div><div class="line">                $data[$index + <span class="number">1</span>] = $data[$index];</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            $index--;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//完成所有需调整数据后移,当前待插入数据放到当前位置</span></div><div class="line">        $data[$index + <span class="number">1</span>] = $current;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> $data;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="版权申明"><a href="#版权申明" class="headerlink" title="版权申明:"></a>版权申明:</h4><blockquote>
+<p>本文是原创作品，包括文字、资料、图片、网页格式，转载时请标注作者与来源。非经允许，不得用于赢利目的。</p>
+</blockquote>
 
       
     </div>
@@ -621,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#版权申明"><span class="nav-number">1.</span> <span class="nav-text">版权申明:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序"><span class="nav-number"></span> <span class="nav-text">插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路："><span class="nav-number">1.</span> <span class="nav-text">思路：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序"><span class="nav-number">1.</span> <span class="nav-text">插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路："><span class="nav-number">1.1.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版权申明"><span class="nav-number">1.2.</span> <span class="nav-text">版权申明:</span></a></li></ol></li></ol></div>
             
 
           </div>
