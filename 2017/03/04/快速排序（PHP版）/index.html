@@ -105,22 +105,30 @@
 
 
 
-<meta name="description" content="最近想回顾一下基本的排序查找算法，顺便用PHP实现一下。这里只是写了一些要点，时间空间复杂度、实现思路、代码（带注释）。一方面自己复习，另一方面方便其他同学参考。
-
-冒泡排序冒泡排序是大家在学习数据结构和算法的时候接触到的最早的算法，基本人人都知道。其思想很朴素，就是模仿现实生活中见到的，气泡上浮的原理。从底部（一般数组或者链表是从一侧）起，根据重量（元素大小），上浮，达到最终的自上而下是由轻到重">
+<meta name="description" content="快速排序
+时间复杂度 O(nlogn) 空间复杂度O（logn） 不稳定 【两个时间复杂度O(nlogn) 的排序算法都不稳定】
+时间复杂度：最坏O（n^2） 当划分不均匀时候 逆序and排好序都是最坏情况最好O（n） 当划分均匀partition的时间复杂度: O（n）一共需要logn次partition
+空间复杂度：递归造成的栈空间的使用，最好情况，递归树的深度logn 空间复杂的logn，最">
 <meta property="og:type" content="article">
-<meta property="og:title" content="冒泡排序（PHP版）">
-<meta property="og:url" content="http://justpoet.github.io/2017/03/01/冒泡排序（PHP版）/index.html">
+<meta property="og:title" content="快速排序（PHP版）">
+<meta property="og:url" content="http://justpoet.github.io/2017/03/04/快速排序（PHP版）/index.html">
 <meta property="og:site_name" content="把代码写成诗">
-<meta property="og:description" content="最近想回顾一下基本的排序查找算法，顺便用PHP实现一下。这里只是写了一些要点，时间空间复杂度、实现思路、代码（带注释）。一方面自己复习，另一方面方便其他同学参考。
-
-冒泡排序冒泡排序是大家在学习数据结构和算法的时候接触到的最早的算法，基本人人都知道。其思想很朴素，就是模仿现实生活中见到的，气泡上浮的原理。从底部（一般数组或者链表是从一侧）起，根据重量（元素大小），上浮，达到最终的自上而下是由轻到重">
-<meta property="og:updated_time" content="2017-03-03T11:11:30.000Z">
+<meta property="og:description" content="快速排序
+时间复杂度 O(nlogn) 空间复杂度O（logn） 不稳定 【两个时间复杂度O(nlogn) 的排序算法都不稳定】
+时间复杂度：最坏O（n^2） 当划分不均匀时候 逆序and排好序都是最坏情况最好O（n） 当划分均匀partition的时间复杂度: O（n）一共需要logn次partition
+空间复杂度：递归造成的栈空间的使用，最好情况，递归树的深度logn 空间复杂的logn，最">
+<meta property="og:image" content="http://bbs.ahalei.com/data/attachment/forum/201402/26/094811yilrz1tkzkvlrriz.png">
+<meta property="og:image" content="http://bbs.ahalei.com/data/attachment/forum/201402/26/095430axy0qkhxxkktkktk.png">
+<meta property="og:image" content="http://bbs.ahalei.com/data/attachment/forum/201402/26/095448k1kevwlz41373e7k.png">
+<meta property="og:image" content="http://bbs.ahalei.com/data/attachment/forum/201402/26/095514cag5fumuqqg5jnsw.png">
+<meta property="og:updated_time" content="2017-03-04T02:15:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="冒泡排序（PHP版）">
-<meta name="twitter:description" content="最近想回顾一下基本的排序查找算法，顺便用PHP实现一下。这里只是写了一些要点，时间空间复杂度、实现思路、代码（带注释）。一方面自己复习，另一方面方便其他同学参考。
-
-冒泡排序冒泡排序是大家在学习数据结构和算法的时候接触到的最早的算法，基本人人都知道。其思想很朴素，就是模仿现实生活中见到的，气泡上浮的原理。从底部（一般数组或者链表是从一侧）起，根据重量（元素大小），上浮，达到最终的自上而下是由轻到重">
+<meta name="twitter:title" content="快速排序（PHP版）">
+<meta name="twitter:description" content="快速排序
+时间复杂度 O(nlogn) 空间复杂度O（logn） 不稳定 【两个时间复杂度O(nlogn) 的排序算法都不稳定】
+时间复杂度：最坏O（n^2） 当划分不均匀时候 逆序and排好序都是最坏情况最好O（n） 当划分均匀partition的时间复杂度: O（n）一共需要logn次partition
+空间复杂度：递归造成的栈空间的使用，最好情况，递归树的深度logn 空间复杂的logn，最">
+<meta name="twitter:image" content="http://bbs.ahalei.com/data/attachment/forum/201402/26/094811yilrz1tkzkvlrriz.png">
 
 
 
@@ -148,13 +156,13 @@
 
 
 
-  <link rel="canonical" href="http://justpoet.github.io/2017/03/01/冒泡排序（PHP版）/"/>
+  <link rel="canonical" href="http://justpoet.github.io/2017/03/04/快速排序（PHP版）/"/>
 
 
 
 
 
-  <title> 冒泡排序（PHP版） | 把代码写成诗 </title>
+  <title> 快速排序（PHP版） | 把代码写成诗 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -299,7 +307,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://justpoet.github.io/2017/03/01/冒泡排序（PHP版）/">
+    <link itemprop="mainEntityOfPage" href="http://justpoet.github.io/2017/03/04/快速排序（PHP版）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="郑泽安">
@@ -320,7 +328,7 @@
             
             
               
-                冒泡排序（PHP版）
+                快速排序（PHP版）
               
             
           </h1>
@@ -335,8 +343,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T16:45:10+08:00">
-                2017-03-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-04T10:10:35+08:00">
+                2017-03-04
               </time>
             
 
@@ -393,26 +401,25 @@
       
 
       
-        <p>最近想回顾一下基本的排序查找算法，顺便用PHP实现一下。这里只是写了一些要点，时间空间复杂度、实现思路、代码（带注释）。一方面自己复习，另一方面方便其他同学参考。</p>
-<hr>
-<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序是大家在学习数据结构和算法的时候接触到的最早的算法，基本人人都知道。其思想很朴素，就是模仿现实生活中见到的，气泡上浮的原理。从底部（一般数组或者链表是从一侧）起，根据重量（元素大小），上浮，达到最终的自上而下是由轻到重的效果，从而实现了元素的有序化。</p>
-<blockquote>
-<p>时间复杂度O(n^2), 空间复杂度O(1)</p>
+        <h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><blockquote>
+<p>时间复杂度 O(nlogn) 空间复杂度O（logn） 不稳定 【两个时间复杂度O(nlogn) 的排序算法都不稳定】</p>
+<p>时间复杂度：<br>最坏O（n^2） 当划分不均匀时候 逆序and排好序都是最坏情况<br>最好O（n） 当划分均匀<br>partition的时间复杂度: O（n）一共需要logn次partition</p>
+<p>空间复杂度：递归造成的栈空间的使用，最好情况，递归树的深度logn 空间复杂的logn，最坏情况，需要进行n‐1 递归调用，其空间复杂度为 O(n)，平均情况，空间复杂度也为O(log2n)。</p>
 </blockquote>
 <h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><blockquote>
 <ol>
-<li>遍历。遍历指的是遍历数组或者链表长度的次数(n)，保证每个元素都被访问到</li>
-<li>冒泡。对当前次遍历中未排序的(n-i)个元素的第一个元素开始(0)做冒泡操作，即挨个比较大小根据实际情况交换位置。在循环过程中遇到比自身“轻”的元素，则由该元素继续“上浮”。</li>
-<li>上浮。交换位置</li>
+<li>随意选取一个基准位置(一般选取最左)，用两个标识，标记当前的高低位位置(左右端)</li>
+<li>分拣。检查，高地位标识分别从两端往中部检查，在单次检查中高位遇到小于基准数时和低位遇到大于基准数时；交换，交换此时高地位标记的数值。</li>
+<li>就位。当高地位标识相遇，终止分拣操作，交换基准数和此时高地位标识所在位置的值，此时基准数就位，分拣工作彻底完成。</li>
+<li>递归。对当前基准数左右区域的数据进行上述操作，直到基准数左右无数据。</li>
 </ol>
 </blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">popSort</span><span class="params">($data)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//总长度(待排序数量)</span></div><div class="line">    $count = count($data);</div><div class="line">    </div><div class="line">    <span class="comment">//核心程序</span></div><div class="line">    <span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; $count; $i++) &#123;</div><div class="line"></div><div class="line">        <span class="comment">//冒泡</span></div><div class="line">        <span class="keyword">for</span> ($j = <span class="number">0</span>; $j &lt; $count-$i; $j++) &#123;</div><div class="line">        </div><div class="line">            <span class="comment">//上浮</span></div><div class="line">            <span class="keyword">if</span> (<span class="keyword">isset</span>($data[$j + <span class="number">1</span>]) &amp;&amp; $data[$j] &lt; $data[$j + <span class="number">1</span>]) &#123;</div><div class="line">                $t = $data[$j];</div><div class="line">                $data[$j] = $data[$j + <span class="number">1</span>];</div><div class="line">                $data[$j + <span class="number">1</span>] = $t;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> $data;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>冒泡排序虽然简单，但是不稳定，对于逆序的集合与顺序的集合排序所耗费的时间完全不同（顺序O(n)，逆序O(n^2)）。</p>
-<pre><code>注：顺序的时间复杂度为O(n)主要是因为不需要执行完成内层循环，内层循环只需执行一次即可。
-</code></pre><h4 id="版权申明"><a href="#版权申明" class="headerlink" title="版权申明:"></a>版权申明:</h4><blockquote>
-<p>本文是原创作品，包括文字、资料、图片、网页格式，转载时请标注作者与来源。非经允许，不得用于赢利目的。</p>
-</blockquote>
-
+<pre><code>注：这里的图借用的是啊哈磊老师“啊哈算法”系列博客里面的
+</code></pre><p><img src="http://bbs.ahalei.com/data/attachment/forum/201402/26/094811yilrz1tkzkvlrriz.png" alt="image"></p>
+<p><img src="http://bbs.ahalei.com/data/attachment/forum/201402/26/095430axy0qkhxxkktkktk.png" alt="image"></p>
+<p><img src="http://bbs.ahalei.com/data/attachment/forum/201402/26/095448k1kevwlz41373e7k.png" alt="image"></p>
+<p><img src="http://bbs.ahalei.com/data/attachment/forum/201402/26/095514cag5fumuqqg5jnsw.png" alt="image"></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span><span class="params">(&amp;$data, $low, $high)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//递归终止条件</span></div><div class="line">    <span class="keyword">if</span> ($low &gt;= $high) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//左边(低位标记)</span></div><div class="line">    $left = $low;</div><div class="line">    <span class="comment">//右边(高位标记)</span></div><div class="line">    $right = $high;</div><div class="line">    <span class="comment">//基准数(选取低位数值)</span></div><div class="line">    $pivot = $data[$left];</div><div class="line"></div><div class="line">    <span class="comment">//左右指针往中部检查</span></div><div class="line">    <span class="keyword">while</span> ($left != $right) &#123;</div><div class="line">        <span class="comment">//如果高位大于等于基准数,继续往低位方向查找</span></div><div class="line">        <span class="keyword">while</span> ($data[$right] &gt;= $pivot &amp;&amp; $right &gt; $left) &#123;</div><div class="line">            $right--;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//如果低位小于等于基准数,继续往高位方向查找</span></div><div class="line">        <span class="keyword">while</span> ($data[$left] &lt;= $pivot &amp;&amp; $right &gt; $left) &#123;</div><div class="line">            $left++;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//当高位标记找到比基准数小,低位标记找到比基准数大的时候,交换当前高低位标记位置的值,然后继续查找交换</span></div><div class="line">        <span class="keyword">if</span> ($data[$right] &lt; $data[$left]) &#123;</div><div class="line">            $temp = $data[$right];</div><div class="line">            $data[$right] = $data[$left];</div><div class="line">            $data[$left] = $temp;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//当高地位标记重合,将当前位置的值和基准数位置的值交换</span></div><div class="line">    $temp = $data[$low];</div><div class="line">    $data[$low] = $data[$left];</div><div class="line">    $data[$left] = $temp;</div><div class="line"></div><div class="line">    <span class="comment">//对基准数左右区域的数据递归进行相同操作</span></div><div class="line">    quickSort($data, $low, $left - <span class="number">1</span>);</div><div class="line">    quickSort($data, $left + <span class="number">1</span>, $high);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> $data;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -452,15 +459,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/03/02/插入排序（PHP版）/" rel="next" title="插入排序（PHP版）">
+                <i class="fa fa-chevron-left"></i> 插入排序（PHP版）
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/02/插入排序（PHP版）/" rel="prev" title="插入排序（PHP版）">
-                插入排序（PHP版） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -605,7 +612,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.</span> <span class="nav-text">冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路："><span class="nav-number">1.1.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版权申明"><span class="nav-number">1.2.</span> <span class="nav-text">版权申明:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">1.</span> <span class="nav-text">快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路："><span class="nav-number">1.1.</span> <span class="nav-text">思路：</span></a></li></ol></li></ol></div>
             
 
           </div>
