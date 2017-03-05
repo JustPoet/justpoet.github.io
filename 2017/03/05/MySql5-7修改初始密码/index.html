@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法,排序,PHP," />
+  <meta name="keywords" content="数据库,安装," />
 
 
 
@@ -105,46 +105,28 @@
 
 
 
-<meta name="description" content="插入排序
-时间复杂度O(n^2), 空间复杂度O(1)
+<meta name="description" content="今天帮朋友搭建禅道系统，服务器上的LNMP环境还没有，系统是Centos7，只能我自己来装了。于是乎用YUM一通安装，总算装完了。呼~ 长吁一口气。
+尴尬的瞬间即将到来，我准备去mysql里修改一下root密码，直接mysql -u root -p发现进不去，需要密码，这……只能求助于强大的搜索引擎。总算找到了解决方案。
 
-思路：
-
-将数据划分为两个区域，已排序区和未排序区，最开始已排序区为第一位数字，从第二位数字(第一个未排序数字)开始检测；
-比较后移。将当前未排序的数据，在已排序区从后往前与已排比较，如果已排序区的数据大则后移一位并继续进行前一位的比较。
-插入。当前序数据小于或者已查找完所有已排序区数据时，将待排数据插入到索引位置。
-
-
-123456789">
+路有两条，首先说笨的：
+首先，修改 /etc/my.cnf，在 [mysq">
 <meta property="og:type" content="article">
-<meta property="og:title" content="插入排序（PHP版）">
-<meta property="og:url" content="http://justpoet.github.io/2017/03/02/插入排序（PHP版）/index.html">
+<meta property="og:title" content="MySql5.7修改初始密码">
+<meta property="og:url" content="http://justpoet.github.io/2017/03/05/MySql5-7修改初始密码/index.html">
 <meta property="og:site_name" content="把代码写成诗">
-<meta property="og:description" content="插入排序
-时间复杂度O(n^2), 空间复杂度O(1)
+<meta property="og:description" content="今天帮朋友搭建禅道系统，服务器上的LNMP环境还没有，系统是Centos7，只能我自己来装了。于是乎用YUM一通安装，总算装完了。呼~ 长吁一口气。
+尴尬的瞬间即将到来，我准备去mysql里修改一下root密码，直接mysql -u root -p发现进不去，需要密码，这……只能求助于强大的搜索引擎。总算找到了解决方案。
 
-思路：
-
-将数据划分为两个区域，已排序区和未排序区，最开始已排序区为第一位数字，从第二位数字(第一个未排序数字)开始检测；
-比较后移。将当前未排序的数据，在已排序区从后往前与已排比较，如果已排序区的数据大则后移一位并继续进行前一位的比较。
-插入。当前序数据小于或者已查找完所有已排序区数据时，将待排数据插入到索引位置。
-
-
-123456789">
-<meta property="og:updated_time" content="2017-03-03T11:11:45.000Z">
+路有两条，首先说笨的：
+首先，修改 /etc/my.cnf，在 [mysq">
+<meta property="og:updated_time" content="2017-03-05T10:53:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="插入排序（PHP版）">
-<meta name="twitter:description" content="插入排序
-时间复杂度O(n^2), 空间复杂度O(1)
+<meta name="twitter:title" content="MySql5.7修改初始密码">
+<meta name="twitter:description" content="今天帮朋友搭建禅道系统，服务器上的LNMP环境还没有，系统是Centos7，只能我自己来装了。于是乎用YUM一通安装，总算装完了。呼~ 长吁一口气。
+尴尬的瞬间即将到来，我准备去mysql里修改一下root密码，直接mysql -u root -p发现进不去，需要密码，这……只能求助于强大的搜索引擎。总算找到了解决方案。
 
-思路：
-
-将数据划分为两个区域，已排序区和未排序区，最开始已排序区为第一位数字，从第二位数字(第一个未排序数字)开始检测；
-比较后移。将当前未排序的数据，在已排序区从后往前与已排比较，如果已排序区的数据大则后移一位并继续进行前一位的比较。
-插入。当前序数据小于或者已查找完所有已排序区数据时，将待排数据插入到索引位置。
-
-
-123456789">
+路有两条，首先说笨的：
+首先，修改 /etc/my.cnf，在 [mysq">
 
 
 
@@ -172,13 +154,13 @@
 
 
 
-  <link rel="canonical" href="http://justpoet.github.io/2017/03/02/插入排序（PHP版）/"/>
+  <link rel="canonical" href="http://justpoet.github.io/2017/03/05/MySql5-7修改初始密码/"/>
 
 
 
 
 
-  <title> 插入排序（PHP版） | 把代码写成诗 </title>
+  <title> MySql5.7修改初始密码 | 把代码写成诗 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -323,7 +305,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://justpoet.github.io/2017/03/02/插入排序（PHP版）/">
+    <link itemprop="mainEntityOfPage" href="http://justpoet.github.io/2017/03/05/MySql5-7修改初始密码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="郑泽安">
@@ -344,7 +326,7 @@
             
             
               
-                插入排序（PHP版）
+                MySql5.7修改初始密码
               
             
           </h1>
@@ -359,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-02T00:10:56+08:00">
-                2017-03-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-05T18:41:10+08:00">
+                2017-03-05
               </time>
             
 
@@ -382,8 +364,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
                   </a>
                 </span>
 
@@ -417,21 +399,32 @@
       
 
       
-        <h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><blockquote>
-<p>时间复杂度O(n^2), 空间复杂度O(1)</p>
+        <p>今天帮朋友搭建禅道系统，服务器上的LNMP环境还没有，系统是Centos7，只能我自己来装了。于是乎用YUM一通安装，总算装完了。呼~ 长吁一口气。</p>
+<p>尴尬的瞬间即将到来，我准备去mysql里修改一下root密码，直接mysql -u root -p发现进不去，需要密码，这……只能求助于强大的搜索引擎。总算找到了解决方案。</p>
+<hr>
+<h4 id="路有两条，首先说笨的："><a href="#路有两条，首先说笨的：" class="headerlink" title="路有两条，首先说笨的："></a>路有两条，首先说笨的：</h4><ol>
+<li><p>首先，修改 /etc/my.cnf，在 [mysqld] 小节下添加一行：skip-grant-tables=1</p>
+<blockquote>
+<p>这一行配置让 mysqld 启动时不对密码进行验证</p>
 </blockquote>
-<h4 id="思路："><a href="#思路：" class="headerlink" title="思路："></a>思路：</h4><blockquote>
-<ol>
-<li>将数据划分为两个区域，已排序区和未排序区，最开始已排序区为第一位数字，从第二位数字(第一个未排序数字)开始检测；</li>
-<li>比较后移。将当前未排序的数据，在已排序区从后往前与已排比较，如果已排序区的数据大则后移一位并继续进行前一位的比较。</li>
-<li>插入。当前序数据小于或者已查找完所有已排序区数据时，将待排数据插入到索引位置。</li>
+</li>
+<li><p>然后，重启 mysqld 服务：systemctl restart mysqld</p>
+</li>
+<li><p>接下来，使用 root 用户登录到 mysql：mysql -u root ，切换到mysql数据库，更新 user 表：</p>
+ <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> authentication_string = <span class="keyword">password</span>(<span class="string">'root'</span>), password_expired = <span class="string">'N'</span>, password_last_changed = <span class="keyword">now</span>() <span class="keyword">where</span> <span class="keyword">user</span> = <span class="string">'root'</span>;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在之前的版本中，密码字段的字段名是 password，5.7版本改为了 authentication_string</p>
+</blockquote>
+</li>
+<li><p>退出 mysql，编辑 /etc/my.cnf 文件，删除 skip-grant-tables=1 的内容</p>
+</li>
+<li><p>重启 mysqld 服务，再用新密码登录即可</p>
+</li>
 </ol>
-</blockquote>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertSort</span><span class="params">($data)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">for</span> ($i = <span class="number">1</span>; $i &lt; count($data); $i++) &#123;</div><div class="line">        <span class="comment">//当前待插入的数</span></div><div class="line">        $current = $data[$i];</div><div class="line">        $index = $i - <span class="number">1</span>;</div><div class="line">        <span class="comment">//向前检查</span></div><div class="line">        <span class="keyword">while</span> ($index &gt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">//如果当前检测的数据大于待插入的数据,则当前数据后移一位</span></div><div class="line">            <span class="keyword">if</span> ($data[$index] &gt; $current) &#123;</div><div class="line">                $data[$index + <span class="number">1</span>] = $data[$index];</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">            $index--;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//完成所有需调整数据后移,当前待插入数据放到当前位置</span></div><div class="line">        $data[$index + <span class="number">1</span>] = $current;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> $data;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h4 id="版权申明"><a href="#版权申明" class="headerlink" title="版权申明:"></a>版权申明:</h4><blockquote>
-<p>本文是原创作品，包括文字、资料、图片、网页格式，转载时请标注作者与来源。非经允许，不得用于赢利目的。</p>
-</blockquote>
-
+<h4 id="接下来分享正常情况下的套路："><a href="#接下来分享正常情况下的套路：" class="headerlink" title="接下来分享正常情况下的套路："></a>接下来分享正常情况下的套路：</h4><p>其实，在centos7里面，MySql 5.7安装后会生成随机初始密码，在/var/log/mysqld.log中有记录，这个可以通过cat命令查看，找password关键字。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@CoiniexCode www]# cat /var/log/mysqld.log|grep password</div><div class="line"></div><div class="line">2017-03-05T09:32:42.002434Z 1 [Note] A temporary password is generated for root@localhost: Rc_:+aDd#0AD</div></pre></td></tr></table></figure>
+<p>找到密码后，在以此密码登录，修改 root 用户的密码。然后退出，重新以root用户和刚设置的密码进行登录即可。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">user</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'root'</span></div></pre></td></tr></table></figure>
       
     </div>
 
@@ -454,11 +447,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
+            <a href="/tags/数据库/" rel="tag"># 数据库</a>
           
-            <a href="/tags/排序/" rel="tag"># 排序</a>
-          
-            <a href="/tags/PHP/" rel="tag"># PHP</a>
+            <a href="/tags/安装/" rel="tag"># 安装</a>
           
         </div>
       
@@ -471,8 +462,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/01/冒泡排序（PHP版）/" rel="next" title="冒泡排序（PHP版）">
-                <i class="fa fa-chevron-left"></i> 冒泡排序（PHP版）
+              <a href="/2017/03/04/快速排序（PHP版）/" rel="next" title="快速排序（PHP版）">
+                <i class="fa fa-chevron-left"></i> 快速排序（PHP版）
               </a>
             
           </div>
@@ -480,10 +471,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/04/快速排序（PHP版）/" rel="prev" title="快速排序（PHP版）">
-                快速排序（PHP版） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -628,7 +615,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序"><span class="nav-number">1.</span> <span class="nav-text">插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路："><span class="nav-number">1.1.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版权申明"><span class="nav-number">1.2.</span> <span class="nav-text">版权申明:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#路有两条，首先说笨的："><span class="nav-number">1.</span> <span class="nav-text">路有两条，首先说笨的：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来分享正常情况下的套路："><span class="nav-number">2.</span> <span class="nav-text">接下来分享正常情况下的套路：</span></a></li></ol></div>
             
 
           </div>
