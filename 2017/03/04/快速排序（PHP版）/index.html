@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法,排序,PHP," />
+  <meta name="keywords" content="PHP,算法,排序," />
 
 
 
@@ -121,7 +121,7 @@
 <meta property="og:image" content="http://bbs.ahalei.com/data/attachment/forum/201402/26/095430axy0qkhxxkktkktk.png">
 <meta property="og:image" content="http://bbs.ahalei.com/data/attachment/forum/201402/26/095448k1kevwlz41373e7k.png">
 <meta property="og:image" content="http://bbs.ahalei.com/data/attachment/forum/201402/26/095514cag5fumuqqg5jnsw.png">
-<meta property="og:updated_time" content="2017-03-04T02:15:57.000Z">
+<meta property="og:updated_time" content="2017-03-07T14:19:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="快速排序（PHP版）">
 <meta name="twitter:description" content="快速排序
@@ -420,6 +420,10 @@
 <p><img src="http://bbs.ahalei.com/data/attachment/forum/201402/26/095448k1kevwlz41373e7k.png" alt="image"></p>
 <p><img src="http://bbs.ahalei.com/data/attachment/forum/201402/26/095514cag5fumuqqg5jnsw.png" alt="image"></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">quickSort</span><span class="params">(&amp;$data, $low, $high)</span></span></div><div class="line">&#123;</div><div class="line">    <span class="comment">//递归终止条件</span></div><div class="line">    <span class="keyword">if</span> ($low &gt;= $high) &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//左边(低位标记)</span></div><div class="line">    $left = $low;</div><div class="line">    <span class="comment">//右边(高位标记)</span></div><div class="line">    $right = $high;</div><div class="line">    <span class="comment">//基准数(选取低位数值)</span></div><div class="line">    $pivot = $data[$left];</div><div class="line"></div><div class="line">    <span class="comment">//左右指针往中部检查</span></div><div class="line">    <span class="keyword">while</span> ($left != $right) &#123;</div><div class="line">        <span class="comment">//如果高位大于等于基准数,继续往低位方向查找</span></div><div class="line">        <span class="keyword">while</span> ($data[$right] &gt;= $pivot &amp;&amp; $right &gt; $left) &#123;</div><div class="line">            $right--;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//如果低位小于等于基准数,继续往高位方向查找</span></div><div class="line">        <span class="keyword">while</span> ($data[$left] &lt;= $pivot &amp;&amp; $right &gt; $left) &#123;</div><div class="line">            $left++;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//当高位标记找到比基准数小,低位标记找到比基准数大的时候,交换当前高低位标记位置的值,然后继续查找交换</span></div><div class="line">        <span class="keyword">if</span> ($data[$right] &lt; $data[$left]) &#123;</div><div class="line">            $temp = $data[$right];</div><div class="line">            $data[$right] = $data[$left];</div><div class="line">            $data[$left] = $temp;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//当高地位标记重合,将当前位置的值和基准数位置的值交换</span></div><div class="line">    $temp = $data[$low];</div><div class="line">    $data[$low] = $data[$left];</div><div class="line">    $data[$left] = $temp;</div><div class="line"></div><div class="line">    <span class="comment">//对基准数左右区域的数据递归进行相同操作</span></div><div class="line">    quickSort($data, $low, $left - <span class="number">1</span>);</div><div class="line">    quickSort($data, $left + <span class="number">1</span>, $high);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> $data;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="版权申明"><a href="#版权申明" class="headerlink" title="版权申明:"></a>版权申明:</h4><blockquote>
+<p>本文是原创作品，包括文字、资料、图片、网页格式，转载时请标注作者与来源。非经允许，不得用于赢利目的。</p>
+</blockquote>
+
       
     </div>
 
@@ -442,11 +446,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
             <a href="/tags/算法/" rel="tag"># 算法</a>
           
             <a href="/tags/排序/" rel="tag"># 排序</a>
-          
-            <a href="/tags/PHP/" rel="tag"># PHP</a>
           
         </div>
       
@@ -543,7 +547,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -552,7 +556,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -561,7 +565,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -616,7 +620,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">1.</span> <span class="nav-text">快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路："><span class="nav-number">1.1.</span> <span class="nav-text">思路：</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">1.</span> <span class="nav-text">快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路："><span class="nav-number">1.1.</span> <span class="nav-text">思路：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版权申明"><span class="nav-number">1.2.</span> <span class="nav-text">版权申明:</span></a></li></ol></li></ol></div>
             
 
           </div>

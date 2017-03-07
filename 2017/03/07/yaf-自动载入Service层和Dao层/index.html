@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="数据库,安装," />
+  <meta name="keywords" content="Yaf,PHP,autoload," />
 
 
 
@@ -105,28 +105,24 @@
 
 
 
-<meta name="description" content="今天帮朋友搭建禅道系统，服务器上的LNMP环境还没有，系统是Centos7，只能我自己来装了。于是乎用YUM一通安装，总算装完了。呼~ 长吁一口气。
-尴尬的瞬间即将到来，我准备去mysql里修改一下root密码，直接mysql -u root -p发现进不去，需要密码，这……只能求助于强大的搜索引擎。总算找到了解决方案。
-
-路有两条，首先说笨的：
-首先，修改 /etc/my.cnf，在 [mysq">
+<meta name="description" content="yaf 自动载入Service层和Dao层大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。
+不过用过的人都知道为什么效率高，就我个人的理解，主要有以下两点：
+1.C语言编写。yaf的存在是以PHP扩展的形式存在的，这就省去了很多PHP编写的框架在请求的时候的繁琐加载，起步就快人一步，而且C的执行效率比PHP不知道高">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySql5.7修改初始密码">
-<meta property="og:url" content="http://justpoet.github.io/2017/03/05/MySql5-7修改初始密码/index.html">
+<meta property="og:title" content="yaf 自动载入Service层和Dao层">
+<meta property="og:url" content="http://justpoet.github.io/2017/03/07/yaf-自动载入Service层和Dao层/index.html">
 <meta property="og:site_name" content="把代码写成诗">
-<meta property="og:description" content="今天帮朋友搭建禅道系统，服务器上的LNMP环境还没有，系统是Centos7，只能我自己来装了。于是乎用YUM一通安装，总算装完了。呼~ 长吁一口气。
-尴尬的瞬间即将到来，我准备去mysql里修改一下root密码，直接mysql -u root -p发现进不去，需要密码，这……只能求助于强大的搜索引擎。总算找到了解决方案。
-
-路有两条，首先说笨的：
-首先，修改 /etc/my.cnf，在 [mysq">
-<meta property="og:updated_time" content="2017-03-05T10:55:35.000Z">
+<meta property="og:description" content="yaf 自动载入Service层和Dao层大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。
+不过用过的人都知道为什么效率高，就我个人的理解，主要有以下两点：
+1.C语言编写。yaf的存在是以PHP扩展的形式存在的，这就省去了很多PHP编写的框架在请求的时候的繁琐加载，起步就快人一步，而且C的执行效率比PHP不知道高">
+<meta property="og:image" content="http://justpoet.github.io/images/yaf.png">
+<meta property="og:updated_time" content="2017-03-07T14:19:40.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySql5.7修改初始密码">
-<meta name="twitter:description" content="今天帮朋友搭建禅道系统，服务器上的LNMP环境还没有，系统是Centos7，只能我自己来装了。于是乎用YUM一通安装，总算装完了。呼~ 长吁一口气。
-尴尬的瞬间即将到来，我准备去mysql里修改一下root密码，直接mysql -u root -p发现进不去，需要密码，这……只能求助于强大的搜索引擎。总算找到了解决方案。
-
-路有两条，首先说笨的：
-首先，修改 /etc/my.cnf，在 [mysq">
+<meta name="twitter:title" content="yaf 自动载入Service层和Dao层">
+<meta name="twitter:description" content="yaf 自动载入Service层和Dao层大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。
+不过用过的人都知道为什么效率高，就我个人的理解，主要有以下两点：
+1.C语言编写。yaf的存在是以PHP扩展的形式存在的，这就省去了很多PHP编写的框架在请求的时候的繁琐加载，起步就快人一步，而且C的执行效率比PHP不知道高">
+<meta name="twitter:image" content="http://justpoet.github.io/images/yaf.png">
 
 
 
@@ -154,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="http://justpoet.github.io/2017/03/05/MySql5-7修改初始密码/"/>
+  <link rel="canonical" href="http://justpoet.github.io/2017/03/07/yaf-自动载入Service层和Dao层/"/>
 
 
 
 
 
-  <title> MySql5.7修改初始密码 | 把代码写成诗 </title>
+  <title> yaf 自动载入Service层和Dao层 | 把代码写成诗 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -305,7 +301,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://justpoet.github.io/2017/03/05/MySql5-7修改初始密码/">
+    <link itemprop="mainEntityOfPage" href="http://justpoet.github.io/2017/03/07/yaf-自动载入Service层和Dao层/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="郑泽安">
@@ -326,7 +322,7 @@
             
             
               
-                MySql5.7修改初始密码
+                yaf 自动载入Service层和Dao层
               
             
           </h1>
@@ -341,8 +337,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-05T18:41:10+08:00">
-                2017-03-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-07T22:15:40+08:00">
+                2017-03-07
               </time>
             
 
@@ -364,8 +360,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据库/" itemprop="url" rel="index">
-                    <span itemprop="name">数据库</span>
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
                   </a>
                 </span>
 
@@ -399,34 +395,29 @@
       
 
       
-        <p>今天帮朋友搭建禅道系统，服务器上的LNMP环境还没有，系统是Centos7，只能我自己来装了。于是乎用YUM一通安装，总算装完了。呼~ 长吁一口气。</p>
-<p>尴尬的瞬间即将到来，我准备去mysql里修改一下root密码，直接mysql -u root -p发现进不去，需要密码，这……只能求助于强大的搜索引擎。总算找到了解决方案。</p>
-<hr>
-<h4 id="路有两条，首先说笨的："><a href="#路有两条，首先说笨的：" class="headerlink" title="路有两条，首先说笨的："></a>路有两条，首先说笨的：</h4><ol>
-<li><p>首先，修改 /etc/my.cnf，在 [mysqld] 小节下添加一行：skip-grant-tables=1</p>
-<blockquote>
-<p>这一行配置让 mysqld 启动时不对密码进行验证</p>
+        <h3 id="yaf-自动载入Service层和Dao层"><a href="#yaf-自动载入Service层和Dao层" class="headerlink" title="yaf 自动载入Service层和Dao层"></a>yaf 自动载入Service层和Dao层</h3><p>大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。</p>
+<p>不过用过的人都知道为什么效率高，就我个人的理解，主要有以下两点：</p>
+<p>1.C语言编写。yaf的存在是以PHP扩展的形式存在的，这就省去了很多PHP编写的框架在请求的时候的繁琐加载，起步就快人一步，而且C的执行效率比PHP不知道高到哪里去了，PHP开了加速（OPCache）也追不上，甚至同为扩展的框架phalcon也比不上。</p>
+<p>2.功能纯粹。不支持ORM、DI，模板的功能也简单。仅仅是一个MVC框架，为效率而生。</p>
+<p>凡是都是有代价的，效率上来了，开发起来就没了那些重型框架的风骚技巧了。</p>
+<p>话归正题，大家都知道，在开发一个稍复杂的系统时，会对代码做一定的分层，这样带来的好处也是不言而喻的，就是解耦。但是yaf默认自动加载就是models、controlles、views这几个类型的路径和library下面的，不过如果你想抽出一个Service层和Dao层，放library下就很怪异了，作为有代码强迫症的我，是不能忍受的。于是乎，我就在找其他方式去处理。</p>
+<p>初期，我想到两种方式：一种是使用composer做自动载入；另一种是使用yaf的注册命名空间的方式：registerLocalNamespace。</p>
+<p>composer利用的是autoload这个标签，一般是PSR-4标准来自动载入的（关于PSR-4自行百度）</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"autoload"</span>: &#123;</div><div class="line">        <span class="attr">"psr-4"</span>: &#123;</div><div class="line">            <span class="attr">"Service\\"</span>: <span class="string">"application/service"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>虽然问题得到解决，不过总感觉怪怪的，不yaf。就在今日，突发奇想看看yaf的源码，看看其自动载入是如何。</p>
+<p>我首先看的是yaf_loader.h文件，当我看到下面的内容时，仿佛看到胜利的曙光。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> YAF_LOADER_DAO						<span class="meta-string">"Dao_"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> YAF_LOADER_LEN_DAO					4</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> YAF_LOADER_SERVICE					<span class="meta-string">"Service_"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> YAF_LOADER_LEN_SERVICE              8</span></div></pre></td></tr></table></figure>
+<p>于是，我继续阅读yaf_loader.c文件。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** &#123;&#123;&#123; proto public Yaf_Loader::autoload($class_name)</span></div><div class="line">*/</div><div class="line">PHP_METHOD(yaf_loader, autoload) &#123;</div><div class="line">	</div><div class="line">....</div><div class="line">	</div><div class="line"><span class="comment">/* &#123;&#123;&#123; This only effects internally */</span></div><div class="line">		<span class="keyword">if</span> (YAF_G(st_compatible) &amp;&amp; (<span class="built_in">strncmp</span>(class_name, YAF_LOADER_DAO, YAF_LOADER_LEN_DAO) == <span class="number">0</span></div><div class="line">					|| <span class="built_in">strncmp</span>(class_name, YAF_LOADER_SERVICE, YAF_LOADER_LEN_SERVICE) == <span class="number">0</span>)) &#123;</div><div class="line">			<span class="comment">/* this is a model class */</span></div><div class="line">			spprintf(&amp;directory, <span class="number">0</span>, <span class="string">"%s/%s"</span>, app_directory, YAF_MODEL_DIRECTORY_NAME);</div><div class="line">		&#125;</div><div class="line"><span class="comment">/* &#125;&#125;&#125; */</span></div><div class="line"></div><div class="line">....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在里面的PHP的autoload方法看到以上关于Dao和Service自动载入的代码。当st_compatible打开时，会在models路径下自动载入。现在的问题是，怎样打开st_compatible？关于st_compatible这个配置，以前并没有接触过，查阅官方文档，也没发现相关的解释。看来只能继续阅读源码。</p>
+<p>在yaf.c中，我看到了它。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* &#123;&#123;&#123; This only effects internally */</span></div><div class="line">	STD_PHP_INI_BOOLEAN(<span class="string">"yaf.st_compatible"</span>,     <span class="string">"0"</span>, PHP_INI_ALL, OnUpdateBool, st_compatible, zend_yaf_globals, yaf_globals)</div><div class="line"><span class="comment">/* &#125;&#125;&#125; */</span></div></pre></td></tr></table></figure>
+<p>默认是关闭的，于是在php.ini关于yaf的配置里加上yaf.st_compatible=1，重新执行，打工告成。从此yaf的代码结构变成了下面这样。</p>
+<p><img src="/images/yaf.png" alt=""></p>
+<h4 id="版权申明"><a href="#版权申明" class="headerlink" title="版权申明:"></a>版权申明:</h4><blockquote>
+<p>本文是原创作品，包括文字、资料、图片、网页格式，转载时请标注作者与来源。非经允许，不得用于赢利目的。</p>
 </blockquote>
-</li>
-<li><p>然后，重启 mysqld 服务：systemctl restart mysqld</p>
-</li>
-<li><p>接下来，使用 root 用户登录到 mysql：mysql -u root ，切换到mysql数据库，更新 user 表：</p>
- <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> authentication_string = <span class="keyword">password</span>(<span class="string">'root'</span>), password_expired = <span class="string">'N'</span>, password_last_changed = <span class="keyword">now</span>() <span class="keyword">where</span> <span class="keyword">user</span> = <span class="string">'root'</span>;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>在之前的版本中，密码字段的字段名是 password，5.7版本改为了 authentication_string</p>
-</blockquote>
-</li>
-<li><p>退出 mysql，编辑 /etc/my.cnf 文件，删除 skip-grant-tables=1 的内容</p>
-</li>
-<li><p>重启 mysqld 服务，再用新密码登录即可</p>
-</li>
-</ol>
-<h4 id="接下来分享正常情况下的套路："><a href="#接下来分享正常情况下的套路：" class="headerlink" title="接下来分享正常情况下的套路："></a>接下来分享正常情况下的套路：</h4><p>其实，在centos7里面，MySql 5.7安装后会生成随机初始密码，在/var/log/mysqld.log中有记录，这个可以通过cat命令查看，找password关键字。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@CoiniexCode www]# cat /var/log/mysqld.log|grep password</div><div class="line"></div><div class="line">2017-03-05T09:32:42.002434Z 1 [Note] A temporary password is generated for root@localhost: Rc_:+aDd#0AD</div></pre></td></tr></table></figure>
-<p>找到密码后，在以此密码登录，修改 root 用户的密码。然后退出，重新以root用户和刚设置的密码进行登录即可。</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alter</span> <span class="keyword">user</span> <span class="string">'root'</span>@<span class="string">'localhost'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'root'</span></div></pre></td></tr></table></figure>
-<pre><code>问题完美解决，可以去吃饭咯，啦啦啦……
-</code></pre>
+
       
     </div>
 
@@ -449,9 +440,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/数据库/" rel="tag"># 数据库</a>
+            <a href="/tags/Yaf/" rel="tag"># Yaf</a>
           
-            <a href="/tags/安装/" rel="tag"># 安装</a>
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+            <a href="/tags/autoload/" rel="tag"># autoload</a>
           
         </div>
       
@@ -464,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/04/快速排序（PHP版）/" rel="next" title="快速排序（PHP版）">
-                <i class="fa fa-chevron-left"></i> 快速排序（PHP版）
+              <a href="/2017/03/05/MySql5-7修改初始密码/" rel="next" title="MySql5.7修改初始密码">
+                <i class="fa fa-chevron-left"></i> MySql5.7修改初始密码
               </a>
             
           </div>
@@ -473,10 +466,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/07/yaf-自动载入Service层和Dao层/" rel="prev" title="yaf 自动载入Service层和Dao层">
-                yaf 自动载入Service层和Dao层 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -621,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#路有两条，首先说笨的："><span class="nav-number">1.</span> <span class="nav-text">路有两条，首先说笨的：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来分享正常情况下的套路："><span class="nav-number">2.</span> <span class="nav-text">接下来分享正常情况下的套路：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#yaf-自动载入Service层和Dao层"><span class="nav-number">1.</span> <span class="nav-text">yaf 自动载入Service层和Dao层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#版权申明"><span class="nav-number">1.1.</span> <span class="nav-text">版权申明:</span></a></li></ol></li></ol></div>
             
 
           </div>
