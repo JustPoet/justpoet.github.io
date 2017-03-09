@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PHP, Java, 前端, 随想" />
+  <meta name="keywords" content="PHP, 前端, 随想, 代码写成诗" />
 
 
 
@@ -291,6 +291,162 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://justpoet.github.io/2017/03/09/Yaf集成Eloquent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="郑泽安">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="把代码写成诗">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/09/Yaf集成Eloquent/" itemprop="url">
+                  Yaf集成Eloquent
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T23:31:51+08:00">
+                2017-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/09/Yaf集成Eloquent/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/09/Yaf集成Eloquent/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          在上一篇介绍Yaf自动载入Dao和Service的时候介绍过Yaf框架的一些优点（高效，简洁），不过由于其简单开发过程中也带来很多不便，很多东西都需要自己实现，比如数据库的操作什么的。唉，又得自己封装数据库操作了……呐呢？又去自己造轮子，Navie，要那么多轮子干嘛？不知道有composer这个神器
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/09/Yaf集成Eloquent/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://justpoet.github.io/2017/03/07/yaf-自动载入Service层和Dao层/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -400,10 +556,9 @@
       
         
           
-          yaf 自动载入Service层和Dao层
-大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。
+          yaf 自动载入Service层和Dao层大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。
 不过用过的人都知道为什么效率高，就我个人的理解，主要有以下两点：
-1.C语言编写。yaf的存在是以PHP扩展的形式存在的，
+1.C语言编写。yaf的存在是以PHP扩展的形式存在的，这
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -717,12 +872,8 @@
         
           
           快速排序
-
 时间复杂度 O(nlogn) 空间复杂度O（logn） 不稳定 【两个时间复杂度O(nlogn) 的排序算法都不稳定】
-时间复杂度：
-最坏O（n^2） 当划分不均匀时候 逆序and排好序都是最坏情况
-最好O（n） 当划分均匀
-partition的时间复杂度: O（n）一共需要logn次p
+时间复杂度：最坏O（n^2） 当划分不均匀时候 逆序and排好序都是最坏情况最好O（n） 当划分均匀partition的时间复杂度: O（n）一共需要logn次parti
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -879,14 +1030,13 @@ partition的时间复杂度: O（n）一共需要logn次p
         
           
           插入排序
-
 时间复杂度O(n^2), 空间复杂度O(1)
 
 思路：
 
-
 将数据划分为两个区域，已排序区和未排序区，最开始已排序区为第一位数字，从第二位数字(第一个未排序数字)开始检测；
 比较后移。将当前未排序的数据，在已排序区从后往前与已排比较，如果已排序区的数据大则后移一位并继续进行前一位的比较。
+插
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1044,8 +1194,7 @@ partition的时间复杂度: O（n）一共需要logn次p
           
           最近想回顾一下基本的排序查找算法，顺便用PHP实现一下。这里只是写了一些要点，时间空间复杂度、实现思路、代码（带注释）。一方面自己复习，另一方面方便其他同学参考。
 
-冒泡排序
-冒泡排序是大家在学习数据结构和算法的时候接触到的最早的算法，基本人人都知道。其思想很朴素，就是模仿现实生活中见到的，气泡上浮
+冒泡排序冒泡排序是大家在学习数据结构和算法的时候接触到的最早的算法，基本人人都知道。其思想很朴素，就是模仿现实生活中见到的，气泡上浮的
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1128,7 +1277,7 @@ partition的时间复杂度: O（n）一共需要logn次p
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1146,7 +1295,7 @@ partition的时间复杂度: O（n）一共需要logn次p
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

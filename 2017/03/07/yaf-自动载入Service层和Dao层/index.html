@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PHP,Yaf,autoload," />
+  <meta name="keywords" content="Yaf,PHP,autoload," />
 
 
 
@@ -105,26 +105,23 @@
 
 
 
-<meta name="description" content="yaf 自动载入Service层和Dao层
-大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。
+<meta name="description" content="yaf 自动载入Service层和Dao层大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。
 不过用过的人都知道为什么效率高，就我个人的理解，主要有以下两点：
-1.C语言编写。yaf的存在是以PHP扩展的形式存在的，这就省去了很多PHP编写的框架在请求的时候的繁琐加载，起步就快人一步，而且C的执行效率比PHP不知道">
+1.C语言编写。yaf的存在是以PHP扩展的形式存在的，这就省去了很多PHP编写的框架在请求的时候的繁琐加载，起步就快人一步，而且C的执行效率比PHP不知道高">
 <meta property="og:type" content="article">
 <meta property="og:title" content="yaf 自动载入Service层和Dao层">
 <meta property="og:url" content="http://justpoet.github.io/2017/03/07/yaf-自动载入Service层和Dao层/index.html">
 <meta property="og:site_name" content="把代码写成诗">
-<meta property="og:description" content="yaf 自动载入Service层和Dao层
-大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。
+<meta property="og:description" content="yaf 自动载入Service层和Dao层大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。
 不过用过的人都知道为什么效率高，就我个人的理解，主要有以下两点：
-1.C语言编写。yaf的存在是以PHP扩展的形式存在的，这就省去了很多PHP编写的框架在请求的时候的繁琐加载，起步就快人一步，而且C的执行效率比PHP不知道">
+1.C语言编写。yaf的存在是以PHP扩展的形式存在的，这就省去了很多PHP编写的框架在请求的时候的繁琐加载，起步就快人一步，而且C的执行效率比PHP不知道高">
 <meta property="og:image" content="http://justpoet.github.io/images/yaf.png">
 <meta property="og:updated_time" content="2017-03-07T15:22:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yaf 自动载入Service层和Dao层">
-<meta name="twitter:description" content="yaf 自动载入Service层和Dao层
-大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。
+<meta name="twitter:description" content="yaf 自动载入Service层和Dao层大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。
 不过用过的人都知道为什么效率高，就我个人的理解，主要有以下两点：
-1.C语言编写。yaf的存在是以PHP扩展的形式存在的，这就省去了很多PHP编写的框架在请求的时候的繁琐加载，起步就快人一步，而且C的执行效率比PHP不知道">
+1.C语言编写。yaf的存在是以PHP扩展的形式存在的，这就省去了很多PHP编写的框架在请求的时候的繁琐加载，起步就快人一步，而且C的执行效率比PHP不知道高">
 <meta name="twitter:image" content="http://justpoet.github.io/images/yaf.png">
 
 
@@ -408,8 +405,7 @@
       
 
       
-        <h3>yaf 自动载入Service层和Dao层</h3>
-<p>大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。</p>
+        <h3 id="yaf-自动载入Service层和Dao层"><a href="#yaf-自动载入Service层和Dao层" class="headerlink" title="yaf 自动载入Service层和Dao层"></a>yaf 自动载入Service层和Dao层</h3><p>大家都知道yaf是伟大的鸟哥开发的PHP扩展的MVC框架，执行效率独步武林，因此国内很多互联网公司都有使用，比如新浪微博的MAPI。</p>
 <p>不过用过的人都知道为什么效率高，就我个人的理解，主要有以下两点：</p>
 <p>1.C语言编写。yaf的存在是以PHP扩展的形式存在的，这就省去了很多PHP编写的框架在请求的时候的繁琐加载，起步就快人一步，而且C的执行效率比PHP不知道高到哪里去了，PHP开了加速（OPCache）也追不上，甚至同为扩展的框架phalcon也比不上。</p>
 <p>2.功能纯粹。不支持ORM、DI，模板的功能也简单。仅仅是一个MVC框架，为效率而生。</p>
@@ -417,19 +413,18 @@
 <p>话归正题，大家都知道，在开发一个稍复杂的系统时，会对代码做一定的分层，这样带来的好处也是不言而喻的，就是解耦。但是yaf默认自动加载就是models、controlles、views这几个类型的路径和library下面的，不过如果你想抽出一个Service层和Dao层，放library下就很怪异了，作为有代码强迫症的我，是不能忍受的。于是乎，我就在找其他方式去处理。</p>
 <p>初期，我想到两种方式：一种是使用composer做自动载入；另一种是使用yaf的注册命名空间的方式：registerLocalNamespace。</p>
 <p>composer利用的是autoload这个标签，一般是PSR-4标准来自动载入的（关于PSR-4自行百度）</p>
-<p><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"autoload"</span>: &#123;</div><div class="line">        <span class="attr">"psr-4"</span>: &#123;</div><div class="line">            <span class="attr">"Service\\"</span>: <span class="string">"application/service"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    <span class="attr">"autoload"</span>: &#123;</div><div class="line">        <span class="attr">"psr-4"</span>: &#123;</div><div class="line">            <span class="attr">"Service\\"</span>: <span class="string">"application/service"</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>虽然问题得到解决，不过总感觉怪怪的，不yaf。就在今日，突发奇想看看yaf的源码，看看其自动载入是如何。</p>
 <p>我首先看的是yaf_loader.h文件，当我看到下面的内容时，仿佛看到胜利的曙光。</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> YAF_LOADER_DAO						<span class="meta-string">"Dao_"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> YAF_LOADER_LEN_DAO					4</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> YAF_LOADER_SERVICE					<span class="meta-string">"Service_"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> YAF_LOADER_LEN_SERVICE              8</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">define</span> YAF_LOADER_DAO						<span class="meta-string">"Dao_"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> YAF_LOADER_LEN_DAO					4</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> YAF_LOADER_SERVICE					<span class="meta-string">"Service_"</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> YAF_LOADER_LEN_SERVICE              8</span></div></pre></td></tr></table></figure>
 <p>于是，我继续阅读yaf_loader.c文件。</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** &#123;&#123;&#123; proto public Yaf_Loader::autoload($class_name)</span></div><div class="line">*/</div><div class="line">PHP_METHOD(yaf_loader, autoload) &#123;</div><div class="line">	</div><div class="line">....</div><div class="line">	</div><div class="line"><span class="comment">/* &#123;&#123;&#123; This only effects internally */</span></div><div class="line">		<span class="keyword">if</span> (YAF_G(st_compatible) &amp;&amp; (<span class="built_in">strncmp</span>(class_name, YAF_LOADER_DAO, YAF_LOADER_LEN_DAO) == <span class="number">0</span></div><div class="line">					|| <span class="built_in">strncmp</span>(class_name, YAF_LOADER_SERVICE, YAF_LOADER_LEN_SERVICE) == <span class="number">0</span>)) &#123;</div><div class="line">			<span class="comment">/* this is a model class */</span></div><div class="line">			spprintf(&amp;directory, <span class="number">0</span>, <span class="string">"%s/%s"</span>, app_directory, YAF_MODEL_DIRECTORY_NAME);</div><div class="line">		&#125;</div><div class="line"><span class="comment">/* &#125;&#125;&#125; */</span></div><div class="line"></div><div class="line">....</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** &#123;&#123;&#123; proto public Yaf_Loader::autoload($class_name)</span></div><div class="line">*/</div><div class="line">PHP_METHOD(yaf_loader, autoload) &#123;</div><div class="line">	</div><div class="line">....</div><div class="line">	</div><div class="line"><span class="comment">/* &#123;&#123;&#123; This only effects internally */</span></div><div class="line">		<span class="keyword">if</span> (YAF_G(st_compatible) &amp;&amp; (<span class="built_in">strncmp</span>(class_name, YAF_LOADER_DAO, YAF_LOADER_LEN_DAO) == <span class="number">0</span></div><div class="line">					|| <span class="built_in">strncmp</span>(class_name, YAF_LOADER_SERVICE, YAF_LOADER_LEN_SERVICE) == <span class="number">0</span>)) &#123;</div><div class="line">			<span class="comment">/* this is a model class */</span></div><div class="line">			spprintf(&amp;directory, <span class="number">0</span>, <span class="string">"%s/%s"</span>, app_directory, YAF_MODEL_DIRECTORY_NAME);</div><div class="line">		&#125;</div><div class="line"><span class="comment">/* &#125;&#125;&#125; */</span></div><div class="line"></div><div class="line">....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>在里面的PHP的autoload方法看到以上关于Dao和Service自动载入的代码。当st_compatible打开时，会在models路径下自动载入。现在的问题是，怎样打开st_compatible？关于st_compatible这个配置，以前并没有接触过，查阅官方文档，也没发现相关的解释。看来只能继续阅读源码。</p>
 <p>在yaf.c中，我看到了它。</p>
-<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* &#123;&#123;&#123; This only effects internally */</span></div><div class="line">	STD_PHP_INI_BOOLEAN(<span class="string">"yaf.st_compatible"</span>,     <span class="string">"0"</span>, PHP_INI_ALL, OnUpdateBool, st_compatible, zend_yaf_globals, yaf_globals)</div><div class="line"><span class="comment">/* &#125;&#125;&#125; */</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* &#123;&#123;&#123; This only effects internally */</span></div><div class="line">	STD_PHP_INI_BOOLEAN(<span class="string">"yaf.st_compatible"</span>,     <span class="string">"0"</span>, PHP_INI_ALL, OnUpdateBool, st_compatible, zend_yaf_globals, yaf_globals)</div><div class="line"><span class="comment">/* &#125;&#125;&#125; */</span></div></pre></td></tr></table></figure>
 <p>默认是关闭的，于是在php.ini关于yaf的配置里加上yaf.st_compatible=1，重新执行，大功告成。从此yaf的代码结构变成了下面这样。</p>
 <p><img src="/images/yaf.png" alt=""></p>
-<h4>版权申明:</h4>
-<blockquote>
+<h4 id="版权申明"><a href="#版权申明" class="headerlink" title="版权申明:"></a>版权申明:</h4><blockquote>
 <p>本文是原创作品，包括文字、资料、图片、网页格式，转载时请标注作者与来源。非经允许，不得用于赢利目的。</p>
 </blockquote>
 
@@ -455,9 +450,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/PHP/" rel="tag"># PHP</a>
-          
             <a href="/tags/Yaf/" rel="tag"># Yaf</a>
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
           
             <a href="/tags/autoload/" rel="tag"># autoload</a>
           
@@ -481,6 +476,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/03/09/Yaf集成Eloquent/" rel="prev" title="Yaf集成Eloquent">
+                Yaf集成Eloquent <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -556,7 +555,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -574,7 +573,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -629,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">yaf 自动载入Service层和Dao层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">版权申明:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#yaf-自动载入Service层和Dao层"><span class="nav-number">1.</span> <span class="nav-text">yaf 自动载入Service层和Dao层</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#版权申明"><span class="nav-number">1.1.</span> <span class="nav-text">版权申明:</span></a></li></ol></li></ol></div>
             
 
           </div>

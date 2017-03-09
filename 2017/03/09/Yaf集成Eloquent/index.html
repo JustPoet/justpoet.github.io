@@ -1,0 +1,813 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Yaf,Eloquent,composer," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在上一篇介绍Yaf自动载入Dao和Service的时候介绍过Yaf框架的一些优点（高效，简洁），不过由于其简单开发过程中也带来很多不便，很多东西都需要自己实现，比如数据库的操作什么的。唉，又得自己封装数据库操作了……呐呢？又去自己造轮子，Navie，要那么多轮子干嘛？不知道有composer这个神器吗？有那么多大神贡献了牛X的轮子，大家造自行车、跑车、飞机都不是问题。😁
+这里就数据库访问的问题，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yaf集成Eloquent">
+<meta property="og:url" content="http://justpoet.github.io/2017/03/09/Yaf集成Eloquent/index.html">
+<meta property="og:site_name" content="把代码写成诗">
+<meta property="og:description" content="在上一篇介绍Yaf自动载入Dao和Service的时候介绍过Yaf框架的一些优点（高效，简洁），不过由于其简单开发过程中也带来很多不便，很多东西都需要自己实现，比如数据库的操作什么的。唉，又得自己封装数据库操作了……呐呢？又去自己造轮子，Navie，要那么多轮子干嘛？不知道有composer这个神器吗？有那么多大神贡献了牛X的轮子，大家造自行车、跑车、飞机都不是问题。😁
+这里就数据库访问的问题，">
+<meta property="og:updated_time" content="2017-03-09T15:33:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Yaf集成Eloquent">
+<meta name="twitter:description" content="在上一篇介绍Yaf自动载入Dao和Service的时候介绍过Yaf框架的一些优点（高效，简洁），不过由于其简单开发过程中也带来很多不便，很多东西都需要自己实现，比如数据库的操作什么的。唉，又得自己封装数据库操作了……呐呢？又去自己造轮子，Navie，要那么多轮子干嘛？不知道有composer这个神器吗？有那么多大神贡献了牛X的轮子，大家造自行车、跑车、飞机都不是问题。😁
+这里就数据库访问的问题，">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://justpoet.github.io/2017/03/09/Yaf集成Eloquent/"/>
+
+
+
+
+
+  <title> Yaf集成Eloquent | 把代码写成诗 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  <div style="display: none;">
+    <script src="//s95.cnzz.com/z_stat.php?id=1261404624&web_id=1261404624" language="JavaScript"></script>
+  </div>
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">把代码写成诗</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://justpoet.github.io/2017/03/09/Yaf集成Eloquent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="郑泽安">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="把代码写成诗">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Yaf集成Eloquent
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-09T23:31:51+08:00">
+                2017-03-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/09/Yaf集成Eloquent/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/09/Yaf集成Eloquent/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在<a href="https://justpoet.github.io/2017/03/07/yaf-%E8%87%AA%E5%8A%A8%E8%BD%BD%E5%85%A5Service%E5%B1%82%E5%92%8CDao%E5%B1%82/#more">上一篇</a>介绍Yaf自动载入Dao和Service的时候介绍过Yaf框架的一些优点（高效，简洁），不过由于其简单开发过程中也带来很多不便，很多东西都需要自己实现，比如数据库的操作什么的。唉，又得自己封装数据库操作了……呐呢？又去自己造轮子，Navie，要那么多轮子干嘛？不知道有composer这个神器吗？有那么多大神贡献了牛X的轮子，大家造自行车、跑车、飞机都不是问题。😁</p>
+<p>这里就数据库访问的问题，简单介绍Yaf集成Eloquent ORM框架的过程，大家可以作为参考。Eloquent是传说中最优雅的PHP框架Laravel默认的ORM库，都是一家的，当然会继承其优雅、易用的特性。也许有人会问，为嘛不直接使用Laravel？Laravel虽然非常优秀，不过效率却是惨不忍睹，所以我在开发过程中也只是使用了其ORM。毕竟为了提高开发效率，牺牲一些性能也是可以忍受的嘛，哈哈……</p>
+<h3 id="安装composer"><a href="#安装composer" class="headerlink" title="安装composer"></a>安装composer</h3><p>在这里我们首先要在本地安装完成composer环境，关于composer的安装请自行根据官方文档（中文）完成<a href="http://docs.phpcomposer.com/01-basic-usage.html" target="_blank" rel="external">传送门</a>，在这里就不赘述了。</p>
+<p>完成composer安装后，在你创建的Yaf项目的根目录下创建composer.json文件，然后添加如下内容，然后执行composer update：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"require"</span>: &#123;</div><div class="line">    <span class="attr">"illuminate/database"</span>: <span class="string">"5.2.*"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>或者直接执行composer require illuminate/database命令也可以。可能这时候一些童鞋的命令会卡死、或者提示请求失败之类的，不要紧张，这是伟大的GFW在保护你，这时候你需要使用国内的composer仓库。在composer.json加上仓库信息即可：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"require"</span>: &#123;</div><div class="line">    <span class="attr">"illuminate/database"</span>: <span class="string">"5.2.*"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"repositories"</span>: &#123;</div><div class="line">    <span class="attr">"packagist"</span>: &#123;</div><div class="line">      <span class="attr">"type"</span>: <span class="string">"composer"</span>,</div><div class="line">      <span class="attr">"url"</span>: <span class="string">"https://packagist.phpcomposer.com"</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来完成安装。这时候在项目的根目录下回出现vendor目录，这就是composer管理的组件目录。</p>
+<h3 id="集成composer依赖包"><a href="#集成composer依赖包" class="headerlink" title="集成composer依赖包"></a>集成composer依赖包</h3><p>用composer安装完成illuminate/database后，我们需要让框架能够自动加载它所管理的包，这时我们需要在入口文件index.php里面加上，我的index.php是放在根目录下的www目录下。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span> APPLICATION_PATH . <span class="string">'/vendor/autoload.php'</span>;</div></pre></td></tr></table></figure>
+<p>现在在项目代码里就可以使用Eloquent里面的类了。</p>
+<h3 id="集成Eloquent"><a href="#集成Eloquent" class="headerlink" title="集成Eloquent"></a>集成Eloquent</h3><p>在Bootstrap.php中添加_initDatabase，我们让框架启动的时候初始化并启动Eloquent。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Capsule</span>\<span class="title">Manager</span> <span class="title">as</span> <span class="title">Capsule</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bootstrap</span> <span class="keyword">extends</span> <span class="title">Yaf_Bootstrap_Abstract</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">_initDatabase</span><span class="params">()</span></span></div><div class="line">  &#123;</div><div class="line">    $capsule = <span class="keyword">new</span> Capsule;</div><div class="line">    $capsule-&gt;addConnection(<span class="keyword">$this</span>-&gt;config-&gt;database-&gt;toArray());</div><div class="line">    $capsule-&gt;setAsGlobal();</div><div class="line">    $capsule-&gt;bootEloquent();</div><div class="line">  &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>现在就可以在models里面写model类，注意model类得继承Illuminate\Database\Eloquent\Model类。一般来说，Eloquent默认的表名是与类名一致的小写的复数。但是由于yaf的model类都是以Model结尾的，很明显不是太合适，因此在model类里面需要加上$table属性，来指定对应的表。比如我的一个user表。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Eloquent</span>\<span class="title">Model</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserModel</span> <span class="keyword">extends</span> <span class="title">Model</span></span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">protected</span> $table = <span class="string">'user'</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>到现在为止，已经可以根据Eloquent的文档进行开发了，但是有一个新的问题，我想优雅的使用自己定义的id自动生成规则，而不是自增。</p>
+<h3 id="Eloquent事件处理"><a href="#Eloquent事件处理" class="headerlink" title="Eloquent事件处理"></a>Eloquent事件处理</h3><p>关于自定义id自动生成规则，如果不使用自增，一般能想到的就是在插入的时候直接设置主键的值。这样子的话多了很多重复代码，而且不优雅，与Laravel的主旨不符。后来在文档上看到关于事件系统，就是在model的增删改查等节点，会触发相关事件，如果想在事件发生的时候做一些相关操作，可以通过事件系统的方法来完成。</p>
+<p>首先，得让Eloquent支持event，这时我们就需要引入一个新的包：illuminate/events。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">"require"</span>: &#123;</div><div class="line">    <span class="attr">"illuminate/database"</span>: <span class="string">"5.2.*"</span>,</div><div class="line">    <span class="attr">"illuminate/events"</span>: <span class="string">"5.2.*"</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">"repositories"</span>: &#123;</div><div class="line">    <span class="attr">"packagist"</span>: &#123;</div><div class="line">      <span class="attr">"type"</span>: <span class="string">"composer"</span>,</div><div class="line">      <span class="attr">"url"</span>: <span class="string">"https://packagist.phpcomposer.com"</span></div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来需要在初始化Eloquent的时候添加事件分派</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Database</span>\<span class="title">Capsule</span>\<span class="title">Manager</span> <span class="title">as</span> <span class="title">Capsule</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Events</span>\<span class="title">Dispatcher</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bootstrap</span> <span class="keyword">extends</span> <span class="title">Yaf_Bootstrap_Abstract</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">_initDatabase</span><span class="params">()</span></span></div><div class="line">  &#123;</div><div class="line">    $capsule = <span class="keyword">new</span> Capsule;</div><div class="line">    $capsule-&gt;addConnection(<span class="keyword">$this</span>-&gt;config-&gt;database-&gt;toArray());</div><div class="line">    $capsule-&gt;setEventDispatcher(<span class="keyword">new</span> Dispatcher($capsule-&gt;getContainer()));</div><div class="line">    $capsule-&gt;setAsGlobal();</div><div class="line">    $capsule-&gt;bootEloquent();</div><div class="line">  &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来只需要在model类里重写boot方法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">protected</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">boot</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">  <span class="keyword">parent</span>::boot();</div><div class="line"></div><div class="line">  <span class="keyword">static</span>::creating(<span class="function"><span class="keyword">function</span> <span class="params">($model)</span> </span>&#123;</div><div class="line">    $idWork = IdWork::getInstance();</div><div class="line">    $pk = $model-&gt;getKeyName();</div><div class="line">    $model-&gt;$pk = $idWork-&gt;nextId();</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>这里我的IdWork类，是Twitter的Snowflake算法的PHP实现</p>
+</blockquote>
+<p>现在，当我们创建的时候就会触发这个事件，闭包的那个参数，便是当前的model类的对象。关于为什么要使用creating事件，因为当创建模型时，依次执行<code>saving</code>、<code>creating</code>、<code>created</code>和<code>saved</code>，而在更新模型时依次执行<code>saving</code>、<code>updating</code>、<code>updated</code>和saved，生成id主要是在新建的时候才需要，所以，在creating事件里面写这个即可。所以大家可以根据实际需要编写事件相关的方法，完成各种需求，比如说数据缓存之类的。</p>
+<h4 id="版权申明"><a href="#版权申明" class="headerlink" title="版权申明:"></a>版权申明:</h4><blockquote>
+<p>本文是原创作品，包括文字、资料、图片、网页格式，转载时请标注作者与来源。非经允许，不得用于赢利目的。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Yaf/" rel="tag"># Yaf</a>
+          
+            <a href="/tags/Eloquent/" rel="tag"># Eloquent</a>
+          
+            <a href="/tags/composer/" rel="tag"># composer</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/07/yaf-自动载入Service层和Dao层/" rel="next" title="yaf 自动载入Service层和Dao层">
+                <i class="fa fa-chevron-left"></i> yaf 自动载入Service层和Dao层
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/09/Yaf集成Eloquent/"
+           data-title="Yaf集成Eloquent" data-url="http://justpoet.github.io/2017/03/09/Yaf集成Eloquent/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="郑泽安" />
+          <p class="site-author-name" itemprop="name">郑泽安</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/JustPoet" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/576007726" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装composer"><span class="nav-number">1.</span> <span class="nav-text">安装composer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成composer依赖包"><span class="nav-number">2.</span> <span class="nav-text">集成composer依赖包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#集成Eloquent"><span class="nav-number">3.</span> <span class="nav-text">集成Eloquent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Eloquent事件处理"><span class="nav-number">4.</span> <span class="nav-text">Eloquent事件处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#版权申明"><span class="nav-number">4.1.</span> <span class="nav-text">版权申明:</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">郑泽安</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"justpoet"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
