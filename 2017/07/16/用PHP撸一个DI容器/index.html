@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PHP,DI,IoC,依赖注入,设计模式," />
+  <meta name="keywords" content="DI,IoC,PHP,依赖注入,设计模式," />
 
 
 
@@ -115,7 +115,7 @@
 <meta property="og:description" content="关于依赖注入相信大家应该都经常接触或者至少有所耳闻，比较知名的框架都支持依赖注入，比如Java的Spring，PHP的Laravel、Symfony等。周末玩农药被坑的太惨，突然想自己撸一个简陋DI容器，一来平复被坑的心情，二来锻炼手速，写的不好各位见谅。
 由开车开始先开个车，为大家举个栗子：
 123456789101112131415161718class Driver&amp;#123;    pub">
-<meta property="og:updated_time" content="2017-07-17T05:51:39.000Z">
+<meta property="og:updated_time" content="2017-07-20T08:22:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="用PHP撸一个DI容器">
 <meta name="twitter:description" content="关于依赖注入相信大家应该都经常接触或者至少有所耳闻，比较知名的框架都支持依赖注入，比如Java的Spring，PHP的Laravel、Symfony等。周末玩农药被坑的太惨，突然想自己撸一个简陋DI容器，一来平复被坑的心情，二来锻炼手速，写的不好各位见谅。
@@ -427,6 +427,7 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$driver = $app-&gt;get(Driver::class);</div><div class="line">$driver-&gt;drive();</div><div class="line"></div><div class="line"><span class="comment">//output:老司机正在驾驶普通汽车</span></div></pre></td></tr></table></figure>
 <p>就这么简单，老司机就能发车。这里默认注入的是Car的实例，如果需要开奔驰，那只需要这样：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$benz = $app-&gt;get(Benz::class);</div><div class="line">$driver = $app-&gt;get(Driver::class, $benz);</div><div class="line">$driver-&gt;drive();</div><div class="line"></div><div class="line"><span class="comment">//output:老司机正在驾驶奔驰</span></div></pre></td></tr></table></figure>
+<p>按照PSR-11的要求，依赖注入容器需要实现Psr\Container\ContainerInterface接口，这里只是演示并未去实现，因为那需要引入Psr依赖库，比较麻烦，其实也很简单，只是多了几个方法，有兴趣的可以自己去了解下PSR-11的要求（<a href="https://github.com/container-interop/fig-standards/blob/master/proposed/container.md" target="_blank" rel="external">传送门</a>）。</p>
 <p>这里只是实现了一个非常简陋的DI容器，实际中还需要考虑很多，而且这里的容器功能上还很简陋。还有一些坑没处理，比如出现循环依赖怎么处理、延迟加载的机制……</p>
 <p>这里只是我周末闲暇练手的一点记录，大家如果有兴趣可以阅读以下Laravel或者Symfony容器那块的源码，或者了解一下Spring的容器。后续有空我也会继续完善。</p>
 <h4 id="版权申明"><a href="#版权申明" class="headerlink" title="版权申明:"></a>版权申明:</h4><blockquote>
@@ -455,11 +456,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/PHP/" rel="tag"># PHP</a>
-          
             <a href="/tags/DI/" rel="tag"># DI</a>
           
             <a href="/tags/IoC/" rel="tag"># IoC</a>
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
           
             <a href="/tags/依赖注入/" rel="tag"># 依赖注入</a>
           
@@ -485,6 +486,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/18/DI容器改进（一）/" rel="prev" title="DI容器改进（一）">
+                DI容器改进（一） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -556,7 +561,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
